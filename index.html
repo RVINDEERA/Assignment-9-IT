@@ -5,12 +5,21 @@
     <title>Assignment-9</title>
 
     <style>
+        body{
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("assets/car.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
         main{
             width: fit-content;
             height: fit-content;
             position: absolute;
 
-            top: 0;
+            top:200px;
             bottom: 0;
             left: 0;
             right: 0;
@@ -25,24 +34,34 @@
         }
 
         .light{
-            width: 100px;
-            aspect-ratio: 2/1;
-            border: 2px solid black;
+            width: 40px;
+            aspect-ratio: 3/1;
+            border: 1px solid black;
+
+            border-radius: 20%;
         }
 
         #buttons{
             text-align: center;
-            margin: 20px 0px;
+            margin: 40px 0px;
+
+        }
+        button{
+            background-color: #555555;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            color: white;
         }
 
         .lightON{
             background: red;
-            box-shadow: 0px 0px 20px red;
+            box-shadow: 0px 0px 50px red;
         }
 
         .lightON2{
-            background: #fc3f3f;
-            box-shadow: 0px 0px 20px #fc3f3f;
+            background: rgb(162, 0, 0);
+            box-shadow: 0px 0px 50px rgb(162, 0, 0);
         }
 
 
@@ -52,6 +71,10 @@
 <body>
 <main>
     <section id="cubeSet">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
         <div class="light"></div>
         <div class="light"></div>
         <div class="light"></div>
@@ -71,7 +94,7 @@
 <script src="assets/jquery-3.7.1.min.js"></script>
 <script>
     var currentIndex =0;
-    var lightCount =6;
+    var lightCount =10;
     var move = "RIGHT"
 
     var myInterval = null;
@@ -102,7 +125,7 @@
     }
 
     $("#start").on("click",() =>{
-        myInterval =setInterval(updateLight, 50);
+        myInterval =setInterval(updateLight, 30);
         $("#audio")[0].play();
     });
 
