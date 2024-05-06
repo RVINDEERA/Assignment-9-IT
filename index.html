@@ -66,6 +66,7 @@
     </section>
 </main>
 
+<audio id="audio" src="assets/audio.mp3"></audio>
 
 <script src="assets/jquery-3.7.1.min.js"></script>
 <script>
@@ -78,7 +79,37 @@
     function updateLight(){
         $(".light").removeClass("lightON");
         $(".light").removeClass("lightON2");
+
+        $(".light").eq(currentIndex).addClass("lightON");
+
+        if (move === "RIGHT") {
+            if (currentIndex !== 0) $(".light").eq(currentIndex - 1).addClass("lightON2");
+
+            ++currentIndex;
+            if (currentIndex > lightCount - 2) {
+                move = "LEFT";
+            }
+
+        }else {
+            $(".light").eq(currentIndex+1).addClass("lightON2");
+
+            --currentIndex;
+            if (currentIndex===0){
+                move="RIGHT";
+            }
+
+        }
     }
+
+    $("#start").on("click",() =>{
+        myInterval =setInterval(updateLight, 50);
+        $("#audio")[0].play();
+    });
+
+    $("#stop").on("click",() =>{
+        myInterval = clearInterval(myInterval);
+        $("#audio")[0].pause();
+    });
 </script>
 
 </body>
