@@ -35,6 +35,16 @@
             margin: 20px 0px;
         }
 
+        .lightON{
+            background: red;
+            box-shadow: 0px 0px 20px red;
+        }
+
+        .lightON2{
+            background: #fc3f3f;
+            box-shadow: 0px 0px 20px #fc3f3f;
+        }
+
 
     </style>
 
@@ -57,9 +67,18 @@
 </main>
 
 
-<script src="assets/lib/jquery-3.7.1.min.js"></script>
+<script src="assets/jquery-3.7.1.min.js"></script>
 <script>
-    
+    var currentIndex =0;
+    var lightCount =6;
+    var move = "RIGHT"
+
+    var myInterval = null;
+
+    function updateLight(){
+        $(".light").removeClass("lightON");
+        $(".light").removeClass("lightON2");
+    }
 </script>
 
 </body>
